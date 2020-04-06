@@ -9,6 +9,9 @@ public class ResetOnRespawn : MonoBehaviour {
 
 	private Rigidbody2D myRigidbody;
     public Rigidbody2D rb2D;
+	public SecurityDetection sd;
+	public FlyingEnemy fe;
+	public bool security; 
 
 
     // Use this for initialization
@@ -28,6 +31,7 @@ public class ResetOnRespawn : MonoBehaviour {
             rb2D = GetComponent<Rigidbody2D>();
         }
 
+		
 	
 	}
 	
@@ -51,5 +55,10 @@ public class ResetOnRespawn : MonoBehaviour {
         {
             rb2D.isKinematic = true;
         }
+		if (fe != null)
+		{
+			fe.playertarget = false;
+			sd.found = false; 
+		}
 	}
 }

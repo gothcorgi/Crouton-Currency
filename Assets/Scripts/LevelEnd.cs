@@ -7,7 +7,7 @@ public class LevelEnd : MonoBehaviour {
 	public string levelToLoad;
 
 	public PlayerController thePlayer;
-	public CameraController1 theCamera;
+	public CameraController theCamera;
 	public LevelManager theLevelManager;
 
 	public float waitToMove;
@@ -15,6 +15,11 @@ public class LevelEnd : MonoBehaviour {
 	private bool movePlayer;
 
 	public GameObject pauseScreen;
+
+	public bool tutorial;
+
+	public int score;
+	public bool levelOver;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +42,16 @@ public class LevelEnd : MonoBehaviour {
 		{
 			thePlayer.myRigidBody.velocity = new Vector3 (thePlayer.moveSpeed, thePlayer.myRigidBody.velocity.y, 0f);
 		}
+
+		if(score >+ 2 && levelOver == false)
+		{
+			levelOver = true;
+			StartCoroutine("LevelEndCo");
+				if (tutorial == true) 
+			{
+				PlayerPrefs.SetInt("LvlStart", 1); 
+			}
+		}
 	
 	}
 
@@ -47,6 +62,11 @@ public class LevelEnd : MonoBehaviour {
 				//SceneManager.LoadScene(levelToLoad);
 			    StartCoroutine("LevelEndCo");
 			}
+	
+		if (tutorial == true)
+		{
+			PlayerPrefs.SetInt("LvlStart", 1);
+		}
 	}
 
 	public IEnumerator LevelEndCo()

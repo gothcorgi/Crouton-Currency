@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FP
+  - Enemy
+  - Checkpoint
+  - MovingPlatform
+  - safe
+  - seeker
   layers:
   - Default
   - TransparentFX
@@ -38,6 +44,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2709036215
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1981952585
     locked: 0
