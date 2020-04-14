@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CnControls;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -8,11 +9,11 @@ public class TutorialManager : MonoBehaviour
     private int popupIndex;
     public GameObject spawner;
     public float waitTime = 2f;
-    public Player player;
+    public PlayerController player;
 
     private void Start()
     {
-        player.jumpForce = 0;
+       // player.jumpForce = 0;
     }
 
     void Update()
@@ -33,24 +34,23 @@ public class TutorialManager : MonoBehaviour
                 popupIndex++; 
             }else if(popupIndex == 1)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (CnInputManager.GetButtonDown("Jump"))
                 {
-                    player.jumpForce = 8;
+                    //player.jumpForce = 8;
                     popupIndex++; 
                 }else if (popupIndex == 2)
                 {
-                    if (waitTime <= 0) ;
+                    if (waitTime <= 0)
                     {
                         spawner.SetActive(true);
-                    }else
+                    }
+                    else
                     {
                         waitTime -= Time.deltaTime;
                     }
                     
                 }
             }
-        {
-
-        }
+        
     }
 }

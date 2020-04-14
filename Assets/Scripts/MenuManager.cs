@@ -115,7 +115,8 @@ public class MenuManager : MonoBehaviour
 
     public void PutOnScissors()
     {
-        wearScissors = true; 
+        wearScissors = true;
+        ownScissors = false;
 
     }
 
