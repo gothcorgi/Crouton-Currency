@@ -7,9 +7,10 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject[] popUps;
     private int popupIndex;
-    public GameObject spawner;
+    //public GameObject spawner;
     public float waitTime = 2f;
     public PlayerController player;
+    public LeftJoystick LJ; 
 
     private void Start()
     {
@@ -29,28 +30,38 @@ public class TutorialManager : MonoBehaviour
             }
         }
         if (popupIndex == 0)
-            if(Input.GetKeyDown(KeyCode.LeftArrow)|| Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (LJ.inputVector.x != 0)
+            {
+                Debug.Log("joystickmoved");
+                popupIndex++; 
+            }
+
+        }
+        //if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+       // {
+          //  popupIndex++;
+        //}
+        else if (popupIndex == 1)
+        {
+            if (CnInputManager.GetButtonDown("Jump"))
+            {
+                Debug.Log("jumped");
+                //player.jumpForce = 8;
+                popupIndex++;
+            }
+        }
+        else if (popupIndex == 2)
+        {
+            waitTime -= Time.deltaTime;
+            if (waitTime <= 0)
             {
                 popupIndex++; 
-            }else if(popupIndex == 1)
-            {
-                if (CnInputManager.GetButtonDown("Jump"))
-                {
-                    //player.jumpForce = 8;
-                    popupIndex++; 
-                }else if (popupIndex == 2)
-                {
-                    if (waitTime <= 0)
-                    {
-                        spawner.SetActive(true);
-                    }
-                    else
-                    {
-                        waitTime -= Time.deltaTime;
-                    }
-                    
-                }
+                //spawner.SetActive(true);
             }
-        
+            
+
+        }
+          
     }
 }

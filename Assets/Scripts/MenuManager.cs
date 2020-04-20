@@ -13,9 +13,13 @@ public class MenuManager : MonoBehaviour
 
     public PlayerController pc;
     public int Scissors;
+    public int Bread; 
     public GameObject inventoryScissors;
+    public GameObject inventoryBread;
     public bool wearScissors;
+    public bool wearBread;
     public GameObject RedScissors;
+    public GameObject FakeBread; 
 
 
     public int goldCount;
@@ -117,6 +121,21 @@ public class MenuManager : MonoBehaviour
     {
         wearScissors = true;
         ownScissors = false;
+
+    }
+
+    public void BuyBread()
+    {
+        goldCount -= 1;
+        PlayerPrefs.SetInt("Fake Bread", 1);
+        ShopBread.interactable = false;
+        ownBread = true;
+    }
+
+    public void PutOnBread()
+    {
+        wearBread = true;
+        ownBread = false;
 
     }
 
