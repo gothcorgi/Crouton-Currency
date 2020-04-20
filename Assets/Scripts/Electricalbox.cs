@@ -6,7 +6,8 @@ public class Electricalbox : MonoBehaviour
 {
     public Animator myanim;
     public GameObject securityCam;
-    public GameObject scissors; 
+    public GameObject scissors;
+    public MenuManager mm; 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +22,22 @@ public class Electricalbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "scissors")
+        if(collision.tag == "Scissors")
         {
-            myanim.SetBool("cut", true);
+            myanim.SetBool("Cut", true);
             scissors.SetActive(false);
+            mm.wearScissors = false;
             securityCam.SetActive(false);
-            StartCoroutine("TempCut"); 
+            //StartCoroutine("TempCut"); 
         }
     }
 
     IEnumerator TempCut()
     {
         securityCam.SetActive(false);
-        myanim.SetBool("cut", true);
+        myanim.SetBool("Cut", true);
         yield return new WaitForSeconds(5f);
         securityCam.SetActive(true);
-        myanim.SetBool("cut", false); 
+        myanim.SetBool("Cut", false); 
     }
 }

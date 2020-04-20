@@ -55,15 +55,15 @@ public class MenuManager : MonoBehaviour
 
         if (wearScissors == true)
         {
-            pc.moveSpeed = 8;
-            pc.jumpSpeed = 18;
+            //pc.moveSpeed = 8;
+            //pc.jumpSpeed = 18;
             RedScissors.SetActive(true);
 
         }
         if (wearScissors == false)
             {
-            pc.moveSpeed = 5;
-            pc.jumpSpeed = 10;
+            //pc.moveSpeed = 5;
+            //pc.jumpSpeed = 10;
             RedScissors.SetActive(false);
         }
 

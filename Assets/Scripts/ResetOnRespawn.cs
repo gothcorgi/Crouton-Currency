@@ -11,7 +11,9 @@ public class ResetOnRespawn : MonoBehaviour {
     public Rigidbody2D rb2D;
 	public SecurityDetection sd;
 	public FlyingEnemy fe;
-	public bool security; 
+	public bool security;
+	public SpriteRenderer sr;
+	public SpriteRenderer sr2; 
 
 
     // Use this for initialization
@@ -54,11 +56,22 @@ public class ResetOnRespawn : MonoBehaviour {
         if (rb2D != null)
         {
             rb2D.isKinematic = true;
+			rb2D.mass = 3;
         }
 		if (fe != null)
 		{
 			fe.playertarget = false;
 			sd.found = false; 
+		}
+
+		if(sr !=null)
+		{
+			sr.enabled = true;
+		}
+
+		if(sr2 != null)
+		{
+			sr2.enabled = false;
 		}
 	}
 }
