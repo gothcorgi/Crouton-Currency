@@ -13,13 +13,17 @@ public class MenuManager : MonoBehaviour
 
     public PlayerController pc;
     public int Scissors;
-    public int Bread; 
+    public int Bread;
+    public int SafeZone;
     public GameObject inventoryScissors;
     public GameObject inventoryBread;
+    public GameObject inventorySafe;
     public bool wearScissors;
     public bool wearBread;
+    public bool wearSafeZone;
     public GameObject RedScissors;
-    public GameObject FakeBread; 
+    public GameObject FakeBread;
+    public GameObject TheSafeZone;
 
 
     public int goldCount;
@@ -70,6 +74,64 @@ public class MenuManager : MonoBehaviour
         if (goldCount >= 1 && ownScissors == false)
         {
             ShopScissors.interactable = true;
+        }
+
+        PlayerPrefs.SetInt("Gold", goldCount);
+
+        goldText.text = "Gold:" + goldCount;
+        SafeZone = PlayerPrefs.GetInt("SafeZone");
+
+        if (SafeZone == 1)
+        {
+            inventorySafe.SetActive(true);
+        }
+
+        if (wearSafeZone == true)
+        {
+            //pc.moveSpeed = 8;
+            //pc.jumpSpeed = 18;
+            TheSafeZone.SetActive(true);
+
+        }
+        if (wearSafeZone == false)
+        {
+            //pc.moveSpeed = 5;
+            //pc.jumpSpeed = 10;
+            TheSafeZone.SetActive(false);
+        }
+
+        if (goldCount >= 1 && ownHide == false)
+        {
+            ShopHide.interactable = true;
+        }
+
+        PlayerPrefs.SetInt("Gold", goldCount);
+
+        goldText.text = "Gold:" + goldCount;
+        Bread = PlayerPrefs.GetInt("Fake Bread");
+
+        if (Bread == 1)
+        {
+            inventoryBread.SetActive(true);
+        }
+
+        if (wearBread == true)
+        {
+            //pc.moveSpeed = 8;
+            //pc.jumpSpeed = 18;
+            FakeBread.SetActive(true);
+
+        }
+        if (wearBread == false)
+        {
+            //pc.moveSpeed = 5;
+            //pc.jumpSpeed = 10;
+            FakeBread.SetActive(false);
+        }
+
+        if (goldCount >= 1 && ownBread == false)
+        {
+            ShopBread.interactable = true;
         }
     }
 
@@ -136,6 +198,21 @@ public class MenuManager : MonoBehaviour
     {
         wearBread = true;
         ownBread = false;
+
+    }
+
+    public void BuySafeZone()
+    {
+        goldCount -= 1;
+        PlayerPrefs.SetInt("SafeZone", 1);
+        ShopHide.interactable = false;
+        ownHide = true;
+    }
+
+    public void PutOnSafeZone()
+    {
+        wearSafeZone = true;
+        ownHide = false;
 
     }
 

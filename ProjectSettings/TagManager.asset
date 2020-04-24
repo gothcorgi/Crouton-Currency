@@ -12,6 +12,7 @@ TagManager:
   - seeker
   - Scissors
   - Crouton
+  - SafeZone
   layers:
   - Default
   - TransparentFX
