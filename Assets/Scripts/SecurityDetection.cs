@@ -7,7 +7,8 @@ public class SecurityDetection : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] seekers;
     public bool found;
-    public Text exclamation; 
+    public Text exclamation;
+    public AudioSource alarmSound; 
     void Start()
     {
         seekers = GameObject.FindGameObjectsWithTag("seeker"); 
@@ -29,7 +30,8 @@ public class SecurityDetection : MonoBehaviour
         if (collision.tag == "Player")
         {
             found = true;
-            exclamation.enabled = true; 
+            exclamation.enabled = true;
+            alarmSound.Play();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

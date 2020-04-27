@@ -15,7 +15,8 @@ public class LevelEnd1 : MonoBehaviour {
 	private bool movePlayer;
 
 	public GameObject pauseScreen;
-
+	public Animator carAnimator;
+	public SpriteRenderer sr; 
 	// Use this for initialization
 	void Start () {
 
@@ -59,10 +60,13 @@ public class LevelEnd1 : MonoBehaviour {
 
 		//PlayerPrefs.SetInt ("CoinCount", theLevelManager.coinCount);
 		//PlayerPrefs.SetInt ("PlayerLives", theLevelManager.currentLives);
-        PlayerPrefs.SetInt("GB", 2);
+       // PlayerPrefs.SetInt("GB", 2);
 
         theLevelManager.levelMusic.Stop ();
 		theLevelManager.gameOverMusic.Play ();
+
+		sr.enabled = false; 
+		carAnimator.SetBool("Leave", true); 
 
 		yield return new WaitForSeconds (waitToMove);
 		movePlayer = true;

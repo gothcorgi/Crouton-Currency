@@ -5,11 +5,13 @@ using UnityEngine;
 public class Gold : MonoBehaviour
 {
     public MenuManager mm;
+    public AudioSource pickupsound;
+    public int goldValue; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mm = GameObject.FindObjectOfType<MenuManager>(); 
     }
 
     // Update is called once per frame
@@ -22,7 +24,8 @@ public class Gold : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            mm.goldCount += 1;
+            mm.goldCount += (goldValue);
+            pickupsound.Play(); 
             this.gameObject.SetActive(false);
         }
     }

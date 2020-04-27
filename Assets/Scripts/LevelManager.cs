@@ -49,6 +49,7 @@ public class LevelManager : MonoBehaviour {
 	//public AudioSource coinSound;
 	public AudioSource levelMusic;
 	public AudioSource gameOverMusic;
+	public AudioSource alarmSound; 
     //
 	//public GameObject pauseScreen;
 
@@ -134,6 +135,7 @@ public class LevelManager : MonoBehaviour {
         thePlayer.enabled = false;
         sr.enabled = false;
         rb2D.simulated = false;
+		alarmSound.Stop(); 
        // thePlayer2.enabled = false;
        // sr2.enabled = false;
        // rb2D2.simulated = false;
