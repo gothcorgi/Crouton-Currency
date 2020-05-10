@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 495046}
   - component: {fileID: 21241536}
   - component: {fileID: 5862402}
-  - component: {fileID: 11453280}
   - component: {fileID: 11479198}
+  - component: {fileID: 6422674632320924669}
   m_Layer: 0
   m_Name: 10 star
   m_TagString: Untagged
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 607a224cedd9a464db55c77c8e9956d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2be63dc3b5f63f94ca971ad39c5513a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,19 +99,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.33
---- !u!114 &11453280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc52b12a25b6c46ae86b2d659e77a416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinValue: 10
 --- !u!114 &11479198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +112,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 0}
+  sd: {fileID: 0}
+  fe: {fileID: 0}
+  security: 0
+  sr: {fileID: 0}
+  sr2: {fileID: 0}
+--- !u!114 &6422674632320924669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85058939e92684442b1c3994e68b3d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mm: {fileID: 0}
+  pickupsound: {fileID: 0}
+  goldValue: 0
