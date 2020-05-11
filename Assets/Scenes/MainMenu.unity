@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d44984091aeb42a8ac413c3aa445372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level1
+  firstLevel: Shop
   LevelSelect: 
   startingLives: 3
 --- !u!1 &1754637999
